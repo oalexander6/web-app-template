@@ -21,18 +21,18 @@ func main() {
 
 	logger.Log.Info().Interface("config", c).Msg("Config initialized")
 
-	var store models.Store
+	var s models.Store
 
 	switch c.StoreType {
 	case config.STORE_TYPE_POSTGRES:
-		store = postgres.New(c.PostgresOpts)
+		s = postgres.New(c.PostgresOpts)
 	default:
 		logger.Log.Fatal().Msgf("Invalid store type: %s", c.StoreType)
 	}
 
-	defer store.Close()
+	defer s.Close()
 
-	app := httpserver.New(c, store)
+	app := httpserver.New(c, *models.New(s, c))
 
 	app.Run()
 }

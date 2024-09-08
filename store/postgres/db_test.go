@@ -8,8 +8,8 @@ import (
 	"time"
 
 	"github.com/oalexander6/web-app-template/config"
-	"github.com/oalexander6/web-app-template/pkg/models"
-	"github.com/oalexander6/web-app-template/pkg/store/postgres"
+	"github.com/oalexander6/web-app-template/models"
+	"github.com/oalexander6/web-app-template/store/postgres"
 	"github.com/testcontainers/testcontainers-go"
 	pg "github.com/testcontainers/testcontainers-go/modules/postgres"
 	"github.com/testcontainers/testcontainers-go/wait"
