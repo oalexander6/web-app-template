@@ -1,3 +1,5 @@
 .vscode/
 .env
 __debug*
+node_modules/
+web/dist/
