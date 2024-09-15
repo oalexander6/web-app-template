@@ -30,7 +30,7 @@ func HandleCreateNote(m models.Models) gin.HandlerFunc {
 	return func(ctx *gin.Context) {
 		var createNoteParams models.NoteCreateParams
 
-		if err := ctx.ShouldBind(&createNoteParams); err != nil {
+		if err := ctx.ShouldBindJSON(&createNoteParams); err != nil {
 			json(ctx, http.StatusBadRequest, gin.H{"error": fmt.Sprintf("Invalid request: %s.", err)})
 			return
 		}

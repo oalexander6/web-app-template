@@ -5,8 +5,9 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
-import Hello from '@/components/hello';
+import Navbar from '@/components/navbar';
 
+import Dashboard from './components/dashboard';
 import './index.css';
 
 const queryClient = new QueryClient();
@@ -22,7 +23,13 @@ const router = createBrowserRouter([
   },
   {
     path: '/',
-    element: <Hello />
+    element: <Navbar />,
+    children: [
+      {
+        path: '',
+        element: <Dashboard />
+      }
+    ]
   }
 ]);
 
