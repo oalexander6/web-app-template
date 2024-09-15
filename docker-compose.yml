@@ -2,7 +2,7 @@ services:
   webapp:
     build: .
     env_file:
-      - .env
+      - .env.docker
     environment:
       POSTGRES_HOST: postgres
     ports:

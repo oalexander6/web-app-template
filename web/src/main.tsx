@@ -5,7 +5,7 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
-import Hello from '@/components/Hello';
+import Hello from '@/components/hello';
 
 import './index.css';
 

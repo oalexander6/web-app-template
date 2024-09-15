@@ -2,9 +2,14 @@ FROM node:22-alpine AS clientbuild
 
 WORKDIR /app
 
-COPY ./web ./web
+COPY ./web/package.json ./
+COPY ./web/package-lock.json ./
 
-RUN cd ./web && npm install && npm run build
+RUN npm install
+
+COPY ./web ./
+
+RUN npm run build
 
 FROM golang:1.22 AS build
 
@@ -25,7 +30,7 @@ FROM alpine:latest
 WORKDIR /app/
 
 COPY --from=1 /app/webapp ./
-COPY --from=0 /app/web/dist ./web
+COPY --from=0 /app/dist ./web/dist
 
 EXPOSE 8000
 
