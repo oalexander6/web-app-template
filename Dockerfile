@@ -4,7 +4,7 @@ WORKDIR /app
 
 COPY ./web ./web
 
-# TODO
+RUN cd ./web && npm install && npm run build
 
 FROM golang:1.22 AS build
 
@@ -25,6 +25,7 @@ FROM alpine:latest
 WORKDIR /app/
 
 COPY --from=1 /app/webapp ./
+COPY --from=0 /app/web/dist ./web
 
 EXPOSE 8000
 

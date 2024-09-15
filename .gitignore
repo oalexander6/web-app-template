@@ -1,5 +1,6 @@
 .vscode/
-.env
+.env*
+!.env.template
 __debug*
 node_modules/
 web/dist/
