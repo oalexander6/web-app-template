@@ -5,7 +5,7 @@ WORKDIR /app
 COPY ./web/package.json ./
 COPY ./web/package-lock.json ./
 
-RUN npm install
+RUN npm install --omit=dev
 
 COPY ./web ./
 
